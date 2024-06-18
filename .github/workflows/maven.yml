@@ -35,8 +35,9 @@ jobs:
         docker build -t secret-santa .
         docker tag secret-santa:latest namsyjay/secret-santa:latest
         docker push namsyjay/secret-santa:latest
+        
     - name: Analyse With SonarQube
-      uses: SonarSource/sonarqubescan
+      uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec3
       env: 
         SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
